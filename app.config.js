@@ -49,9 +49,6 @@ export default {
       bundler: "metro"
     },
 
-    prebuild: {
-      skip: true
-    },
 
     extra: {
       router: {
