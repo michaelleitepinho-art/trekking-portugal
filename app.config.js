@@ -6,16 +6,20 @@ export default {
     orientation: "portrait",
     userInterfaceStyle: "automatic",
     icon: "./assets/icon.png",
+
     splash: {
       image: "./assets/splash.png",
       resizeMode: "contain",
       backgroundColor: "#1D9E75"
     },
+
     assetBundlePatterns: ["**/*"],
+
     ios: {
       supportsTablet: false,
       bundleIdentifier: "com.trekkingportugal.app"
     },
+
     android: {
       package: "com.trekkingportugal.app",
       permissions: [
@@ -27,22 +31,36 @@ export default {
         "android.permission.ACCESS_FINE_LOCATION"
       ]
     },
-    plugins: [
-      "expo-router",
-      [
-        "expo-location",
-        {
-          locationAlwaysAndWhenInUsePermission:
-            "Necessário para mostrar trilhos perto de ti."
-        }
+
+    // 🔥 Router DESATIVADO no EAS Build, ATIVADO localmente
+    plugins: process.env.EAS_BUILD_PLATFORM
+      ? [
+        [
+          "expo-location",
+          {
+            locationAlwaysAndWhenInUsePermission:
+              "Necessário para mostrar trilhos perto de ti."
+          }
+        ]
       ]
-    ],
+      : [
+        "expo-router",
+        [
+          "expo-location",
+          {
+            locationAlwaysAndWhenInUsePermission:
+              "Necessário para mostrar trilhos perto de ti."
+          }
+        ]
+      ],
+
     scheme: "trekkingportugal",
+
     web: {
       bundler: "metro"
     },
 
-    // AQUI ESTÁ A CHAVE
+    // 🔥 Isto impede o prebuild automático
     prebuild: {
       skip: true
     },
@@ -55,6 +73,7 @@ export default {
         projectId: "8aa36eb4-1fc6-45b3-9b26-e08a57c003de"
       }
     },
+
     owner: "mlpinho"
   }
 };
