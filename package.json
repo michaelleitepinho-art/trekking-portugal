@@ -35,18 +35,5 @@
     "@types/react": "~18.2.79",
     "typescript": "~5.3.3"
   },
-  "private": true,
-  "expo": {
-    "prebuild": {
-      "skip": true
-    }
-  },
-  "overrides": {
-    "expo-modules-core": "1.12.20",
-    "expo-constants": "16.0.2"
-  },
-  "resolutions": {
-    "expo-modules-core": "1.12.20",
-    "expo-constants": "16.0.2"
-  }
+  "private": true
 }
