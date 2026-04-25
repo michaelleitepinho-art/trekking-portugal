@@ -42,6 +42,9 @@
     "web": {
       "bundler": "metro"
     },
+    "prebuild": {
+      "skip": true
+    },
     "extra": {
       "router": {
         "origin": false
