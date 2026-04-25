@@ -32,27 +32,16 @@ export default {
       ]
     },
 
-    // 🔥 Router DESATIVADO no EAS Build, ATIVADO localmente
-    plugins: process.env.EAS_BUILD_PLATFORM
-      ? [
-        [
-          "expo-location",
-          {
-            locationAlwaysAndWhenInUsePermission:
-              "Necessário para mostrar trilhos perto de ti."
-          }
-        ]
+    // 🔥 Sem expo-router — isto desbloqueia o build
+    plugins: [
+      [
+        "expo-location",
+        {
+          locationAlwaysAndWhenInUsePermission:
+            "Necessário para mostrar trilhos perto de ti."
+        }
       ]
-      : [
-        "expo-router",
-        [
-          "expo-location",
-          {
-            locationAlwaysAndWhenInUsePermission:
-              "Necessário para mostrar trilhos perto de ti."
-          }
-        ]
-      ],
+    ],
 
     scheme: "trekkingportugal",
 
@@ -60,7 +49,6 @@ export default {
       bundler: "metro"
     },
 
-    // 🔥 Isto impede o prebuild automático
     prebuild: {
       skip: true
     },
